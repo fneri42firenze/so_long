@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:07:33 by fneri             #+#    #+#             */
-/*   Updated: 2023/11/04 19:22:49 by fneri            ###   ########.fr       */
+/*   Updated: 2023/11/23 18:54:27 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,3 @@ int	ft_printf(const char *in, ...)
 	return (printable);
 }
 
-int main()
-{
-	printf("%i\n", ft_printf(" %i %i %i ", 0,1,2));
-	printf("%i\n", printf(" %i %i %i ", 0,1,2));
-}
