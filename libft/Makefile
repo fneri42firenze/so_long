@@ -6,7 +6,7 @@
 #    By: fneri <fneri@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/13 16:53:40 by fneri             #+#    #+#              #
-#    Updated: 2023/10/16 14:29:30 by fneri            ###   ########.fr        #
+#    Updated: 2023/11/28 17:44:05 by fneri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRCS = ft_atoi.c \
 	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
-	ft_toupper.c
+	ft_toupper.c \
+	../get_next_line/get_next_line.c
 
 BONUS_SRCS = ft_lstnew.c \
 	ft_lstadd_front.c \
