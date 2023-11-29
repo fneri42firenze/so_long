@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:47 by fneri             #+#    #+#             */
-/*   Updated: 2023/11/29 20:21:35 by fneri            ###   ########.fr       */
+/*   Updated: 2023/11/29 20:25:15 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int key_press(int keycode, t_window *data)
 		}
 	}
 	else if(data->collect == data->collectable && data->map[data->player_pos.y + data->stepy][data->player_pos.x + data->stepx] != 'E' )
-			window_close(data);
+			exit (0);
 	ft_printf("%i\n", data->collect);
 	return (0);
 }
