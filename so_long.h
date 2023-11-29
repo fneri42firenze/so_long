@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:09:08 by fneri             #+#    #+#             */
-/*   Updated: 2023/11/28 21:40:32 by fneri            ###   ########.fr       */
+/*   Updated: 2023/11/29 20:01:49 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ typedef struct s_window
 	char **map;
 	int collect;
 	int collectable;
+	int size_x;
+	int size_y;
+	int stepx;
+	int stepy;
 }        		t_window;
 
 int 	window_close(t_window *window);

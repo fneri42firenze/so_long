@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:47 by fneri             #+#    #+#             */
-/*   Updated: 2023/11/28 22:45:24 by fneri            ###   ########.fr       */
+/*   Updated: 2023/11/29 20:21:35 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,42 +23,30 @@ int window_close(t_window *window)
 
 int key_press(int keycode, t_window *data)
 {
-    if (keycode == 'w')
-    {
-		if	(data->map[data->player_pos.y - 1][data->player_pos.x] != '1')
-		{
-			data->map[data->player_pos.y][data->player_pos.x] = '0';
-			data->map[data->player_pos.y - 1][data->player_pos.x] = 'P';
-			map_stamp(data);
-		}
-	}
-    else if (keycode == 'a')
-    {
-		if (data->map[data->player_pos.y][data->player_pos.x - 1] != '1')
-		{
-			data->map[data->player_pos.y][data->player_pos.x] = '0';
-			data->map[data->player_pos.y][data->player_pos.x - 1] = 'P';
-			map_stamp(data);
-		}
-	}
+	data->stepx = 0;
+	data->stepy = 0;
+	if (keycode == 'w')
+		data->stepy = -1;
+	else if (keycode == 'a')
+		data->stepx = -1;
     else if (keycode == 's')
-    {
-		if (data->map[data->player_pos.y + 1][data->player_pos.x] != '1')
-		{
-			data->map[data->player_pos.y][data->player_pos.x] = '0';
-			data->map[data->player_pos.y + 1][data->player_pos.x] = 'P';
-			map_stamp(data);
-		}
-	}
+		data->stepy = 1;
     else if (keycode == 'd')
-    {
-		if (data->map[data->player_pos.y][data->player_pos.x + 1] != '1')
+		data->stepx = 1;
+	if(data->map[data->player_pos.y + data->stepy][data->player_pos.x + data->stepx] != 'E')
+	{
+		if	(data->map[data->player_pos.y + data->stepy ][data->player_pos.x + data->stepx] != '1')
 		{
+			if(data->map[data->player_pos.y + data->stepy][data->player_pos.x + data->stepx] == 'C')
+				data->collect += 1;
 			data->map[data->player_pos.y][data->player_pos.x] = '0';
-			data->map[data->player_pos.y][data->player_pos.x + 1] = 'P';
+			data->map[data->player_pos.y + data->stepy][data->player_pos.x + data->stepx] = 'P';
 			map_stamp(data);
 		}
 	}
+	else if(data->collect == data->collectable && data->map[data->player_pos.y + data->stepy][data->player_pos.x + data->stepx] != 'E' )
+			window_close(data);
+	ft_printf("%i\n", data->collect);
 	return (0);
 }
 
@@ -108,20 +96,39 @@ void collectable_count(char **map, t_window *window)
 		}
 		i++;
 	}
+	window->size_x = j;
+	window->size_y = i;
 }
 
 void draw_image(char stamp, t_window *window, t_vector coord)
 {
     if (stamp == '1')
-    	mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, window->imgs.img_1, coord.x * 32, coord.y * 32);
+    	mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, window->imgs.img_1, coord.x * 32, coord.y * 32 + 30);
 	else if (stamp == '0')
-		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, window->imgs.img_0, coord.x * 32, coord.y * 32);
+		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, window->imgs.img_0, coord.x * 32, coord.y * 32 + 30);
 	else if (stamp == 'C')
-		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, window->imgs.img_C, coord.x * 32, coord.y * 32);
+		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, window->imgs.img_C, coord.x * 32, coord.y * 32 + 30);
 	else if (stamp == 'P')
-		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, window->imgs.img_P, coord.x * 32, coord.y * 32);
+		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, window->imgs.img_P, coord.x * 32, coord.y * 32 + 30);
 	else if (stamp == 'E')
-		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, window->imgs.img_E, coord.x * 32, coord.y * 32);
+		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, window->imgs.img_E, coord.x * 32, coord.y * 32 + 30);
+}
+void ft_fill_top(t_window *data)
+{
+	int	i;
+	int	j;
+	
+	i = 0;
+	while(i < 30)
+	{
+		j = 0;
+		while(j < data->size_x * 32)
+		{
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, j, i, 0xFFC0CB);
+			j++;
+		}
+		i++;
+	}
 }
 
 void map_stamp(t_window *data)
@@ -129,6 +136,7 @@ void map_stamp(t_window *data)
 	t_vector coord;
 
 	coord.y = 0;
+	ft_fill_top(data);
 	while(data->map[coord.y])
 	{
 		coord.x = 0;
@@ -136,8 +144,8 @@ void map_stamp(t_window *data)
 		{
 			if(data->map[coord.y][coord.x] == 'P')
 			{
-				data->player_pos.x =coord.x;
-				data->player_pos.y =coord.y;
+				data->player_pos.x = coord.x;
+				data->player_pos.y = coord.y;
 			}
 			draw_image(data->map[coord.y][coord.x], data, coord);
 			coord.x++;
@@ -166,17 +174,17 @@ int main(int argc, char **argv)
 	char 		**map;
 	t_window 	window;
 
+	window.collect = 0;
 	if(argc != 2)
 		return (1);
 	window.map = map_anal(argv[1], &window);
 	window.mlx_ptr = mlx_init();
 	if(!window.mlx_ptr)
 		return (1);
-	window.win_ptr = mlx_new_window(window.mlx_ptr, 600, 400, "so_long");
+	window.win_ptr = mlx_new_window(window.mlx_ptr, window.size_x * 32, window.size_y * 32 + 30, "so_long");
 	if(!window.win_ptr)
 		return (free(window.mlx_ptr), 1);
 	window.imgs = img_convert(&window);
-	
 	map_stamp(&window);
 	mlx_hook(window.win_ptr, 2, KeyPressMask, &key_press, &window);
 	mlx_hook(window.win_ptr, DestroyNotify, StructureNotifyMask, &window_close, &window);
