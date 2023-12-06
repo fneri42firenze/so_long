@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:47 by fneri             #+#    #+#             */
-/*   Updated: 2023/11/29 20:29:29 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/06 15:57:34 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,7 @@ t_img img_convert(t_window *window)
 
 int main(int argc, char **argv) 
 {
-	char 		**map;
+	//char 		**map;
 	t_window 	window;
 
 	window.collect = 0;
@@ -191,5 +191,3 @@ int main(int argc, char **argv)
 	mlx_loop(window.mlx_ptr); // Loop principale (il programma rimarrà aperto finché la finestra non viene chiusa)
     return 0;
 }
-//cc management.c -lm -lXext -lX11 libx/libmlx_Linux.a libft/libft.a ft_printf/libftprintf.a
-//./a.out maps/map1.ber

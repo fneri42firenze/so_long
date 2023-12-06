@@ -6,21 +6,21 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:09:08 by fneri             #+#    #+#             */
-/*   Updated: 2023/11/29 20:01:49 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/06 15:57:20 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-# define SO_LONG_H
-# include "libx/mlx.h"
-# include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <X11/X.h>
-# include <X11/keysym.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
+#define SO_LONG_H
+#include "libx/mlx.h"
+#include "ft_printf/ft_printf.h"
+#include "libft_extended/libft.h"
+#include <stdlib.h>
+#include <fcntl.h>
+#include <X11/X.h>
+#include <X11/keysym.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 typedef struct s_vector
 {
