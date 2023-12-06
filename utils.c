@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:53:26 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/06 16:54:00 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/06 20:28:42 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,31 @@ int	window_close(t_window *window)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+void	ft_error(char *errormessage, char **matr)
 {
-	t_window	window;
+	if (matr)
+		ft_free_matr(matr);
+	ft_printf("\n============================"
+		"\n%s\n============================\n\n", errormessage);
+	exit(1);
+}
 
-	window.collect = 0;
-	if (argc != 2)
-		return (1);
-	window.map = map_anal(argv[1], &window);
-	window.mlx_ptr = mlx_init();
-	if (!window.mlx_ptr)
-		return (1);
-	window.win_ptr = mlx_new_window(window.mlx_ptr, window.size_x * 32,
-			window.size_y * 32 + 30, "so_long");
-	if (!window.win_ptr)
-		return (free(window.mlx_ptr), 1);
-	window.imgs = img_convert(&window);
-	map_stamp(&window);
-	mlx_hook(window.win_ptr, 2, KeyPressMask, &key_press, &window);
-	mlx_hook(window.win_ptr, DestroyNotify, StructureNotifyMask,
-		&window_close, &window);
-	mlx_loop(window.mlx_ptr);
-	return (0);
+int	ft_ber(char *map, char *ext)
+{
+	int	map_point;
+	int	ext_point;
+
+	map_point = ft_strlen(map);
+	ext_point = ft_strlen(ext);
+	if (map_point < ext_point)
+		return (0);
+	map += map_point - ext_point;
+	while (*map)
+	{
+		if (*map != *ext)
+			return (0);
+		map++;
+		ext++;
+	}
+	return (1);
 }

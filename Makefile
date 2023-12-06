@@ -11,7 +11,10 @@ PRINTF = ft_printf/libftprintf.a
 SRC = management.c \
 map_management.c \
 image_management.c \
-utils.c
+utils.c \
+control.c \
+mem_free.c \
+main.c
 
 OBJ = $(SRC:.c=.o)
 

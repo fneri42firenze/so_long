@@ -3,6 +3,7 @@
 		"x.h": "c",
 		"types.h": "c",
 		"libft.h": "c",
-		"map_gesture": "cpp"
+		"map_gesture": "cpp",
+		"so_long.h": "c"
 	}
 }
