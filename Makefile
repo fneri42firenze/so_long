@@ -1,4 +1,4 @@
-NAME = so_long.a
+NAME = so_long
 CC = cc
 CFLAGS = -Wextra -Werror -Wall -g
 LINKS_LINUX = -lX11 -lm -lXext
@@ -9,6 +9,9 @@ LIBFT = libft_extended/libft.a
 PRINTF = ft_printf/libftprintf.a
 
 SRC = management.c \
+map_management.c \
+image_management.c \
+utils.c
 
 OBJ = $(SRC:.c=.o)
 
