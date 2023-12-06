@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:09:08 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/06 20:31:19 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/06 20:37:21 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_window
 int		window_close(t_window *window);
 int		key_press(int keycode, t_window *data);
 int		ft_checkfile(int ac, char *file);
+int 	ft_ber(char *map, char *ext);
 char	**map_anal(char *mappa, t_window *window);
 void	collectable_count(char **map, t_window *window);
 void	draw_image(char stamp, t_window *window, t_vector coord);
@@ -64,6 +65,5 @@ void	map_stamp(t_window *data);
 t_img	img_convert(t_window *window);
 void	ft_error(char *errormessage, char **matr);
 void	ft_free_matr(char **matr);
-int 	ft_ber(char *map, char *ext);
 
 #endif
