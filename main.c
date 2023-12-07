@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:59:32 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/06 18:04:07 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/07 17:43:37 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ int	main(int argc, char **argv)
 {
 	t_window	window;
 
-	ft_checkfile(argc, argv[1]);
+	ft_controlfile(argc, argv[1]);
 	window.collect = 0;
 	if (argc != 2)
 		return (1);
 	window.map = map_anal(argv[1], &window);
+	ft_errors_control(&window);
 	window.mlx_ptr = mlx_init();
 	if (!window.mlx_ptr)
 		return (1);

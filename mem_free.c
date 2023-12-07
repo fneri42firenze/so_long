@@ -6,13 +6,26 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:11:46 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/06 20:28:03 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/07 17:27:08 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 void	ft_free_matr(char **matr)
+{
+	int	i;
+
+	i = 0;
+	while (matr[i])
+	{
+		free(matr[i]);
+		i++;
+	}
+	free(matr);
+}
+
+void	ft_free_matrix(char **matr)
 {
 	int	i;
 

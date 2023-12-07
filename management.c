@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:47 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/06 16:54:04 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/07 17:48:13 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ void	collectable_count(char **map, t_window *window)
 		{
 			if (map[i][j] == 'C')
 				window->collectable++;
+			else if (map[i][j] == 'P')
+				window->player++;
+			else if (map[i][j] == 'E')
+				window->door++;
 			j++;
 		}
 		i++;

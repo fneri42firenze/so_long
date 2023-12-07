@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:09:08 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/06 20:37:45 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/07 17:27:25 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,35 @@ typedef struct s_window
 	char		**map;
 	int			collect;
 	int			collectable;
+	int			player;
+	int			door;
 	int			size_x;
 	int			size_y;
 	int			stepx;
 	int			stepy;
 }				t_window;
 
-int		window_close(t_window *window);
-int		key_press(int keycode, t_window *data);
-int		ft_checkfile(int ac, char *file);
-int		ft_ber(char *map, char *ext);
-char	**map_anal(char *mappa, t_window *window);
-void	collectable_count(char **map, t_window *window);
-void	draw_image(char stamp, t_window *window, t_vector coord);
-void	ft_fill_top(t_window *data);
-void	map_stamp(t_window *data);
-t_img	img_convert(t_window *window);
-void	ft_error(char *errormessage, char **matr);
-void	ft_free_matr(char **matr);
+t_img		img_convert(t_window *window);
+t_vector	ft_find_player(char **map);
+int			window_close(t_window *window);
+int			key_press(int keycode, t_window *data);
+int			ft_controlfile(int ac, char *file);
+int			ft_ber(char *map, char *ext);
+int			ft_wrong_char(char c, char **map);
+int			ft_empty_lines(char *l);
+int			ft_reachable(t_window *window);
+char		**map_anal(char *mappa, t_window *window);
+char		**ft_copy_matrix(char **window, int rows, int cols);
+void		collectable_count(char **map, t_window *window);
+void		draw_image(char stamp, t_window *window, t_vector coord);
+void		ft_fill_top(t_window *data);
+void		map_stamp(t_window *data);
+void		ft_error(char *errormessage, char **matr);
+void		ft_free_matr(char **matr);
+void		ft_maprectangular(t_window *window);
+void		ft_controlwall(t_window *window);
+void		ft_errors_control(t_window *window);
+void		ft_dfs(char **map, t_vector size, t_vector curr, t_window *wind);
+void		ft_free_matrix(char **matr);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:53:26 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/06 20:28:42 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/07 15:57:21 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,11 @@ int	ft_ber(char *map, char *ext)
 		ext++;
 	}
 	return (1);
+}
+
+int	ft_wrong_char(char c, char **map)
+{
+	if (c != '1' && c != '0' && c != 'C' && c != 'E' && c != 'P')
+		ft_error("MAP CONTAINS WRONG CHARS", map);
+	return (0);
 }

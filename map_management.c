@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_gesture.c                                      :+:      :+:    :+:   */
+/*   map_management.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:52:31 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/06 16:52:32 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/07 17:41:23 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	**map_anal(char *mappa, t_window *window)
 		{
 			line = get_next_line(fd_open);
 			if (!line)
-				break ; 
+				break ;
 			buffer = ft_strjoin(buffer, line);
 			free(line);
 		}
