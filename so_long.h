@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:09:08 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/07 17:27:25 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 13:21:22 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void		ft_controlwall(t_window *window);
 void		ft_errors_control(t_window *window);
 void		ft_dfs(char **map, t_vector size, t_vector curr, t_window *wind);
 void		ft_free_matrix(char **matr);
-
+void		inizialize(t_window *window);
+void		move_authorize(t_window *data);
 #endif

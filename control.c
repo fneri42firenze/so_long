@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:32:50 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/07 16:29:14 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 14:17:18 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,14 @@ int	ft_empty_lines(char *l)
 void	ft_errors_control(t_window *window)
 {
 	if (window->collectable == 0)
-		ft_error("NO COLLECT", window->map);
+		ft_error("Error\n        NO COLLECT", window->map);
 	if (window->player != 1)
-		ft_error("WRONG NUMBER OF PLAYERS, IT MUST BE ONE!", window->map);
+		ft_error("Error\nWRONG NUMBER OF PLAYERS, IT MUST BE ONE!",
+			window->map);
 	if (window->door != 1)
-		ft_error("WRONG NUMBER OF EXITS, IT MUST BE ONE!", window->map);
+		ft_error("Error\nWRONG NUMBER OF EXITS, IT MUST BE ONE!", window->map);
 	if (!ft_reachable(window))
-		ft_error("DOOR IS NOT REACHABLE", window->map);
+		ft_error("Error\nDOOR IS NOT REACHABLE", window->map);
 	ft_controlwall(window);
 	ft_maprectangular(window);
 }

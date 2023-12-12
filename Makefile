@@ -8,13 +8,13 @@ MINILIBX = libx/libmlx.a
 LIBFT = libft_extended/libft.a
 PRINTF = ft_printf/libftprintf.a
 
-SRC = management.c \
+SRC = move.c \
 map_management.c \
 image_management.c \
 utils.c \
 control.c \
 mem_free.c \
-rechable_control.c \
+flood:rechable_control.c \
 main.c
 
 OBJ = $(SRC:.c=.o)

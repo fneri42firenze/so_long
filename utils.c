@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:53:26 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/07 15:57:21 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 13:14:55 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,16 @@ int	ft_wrong_char(char c, char **map)
 	if (c != '1' && c != '0' && c != 'C' && c != 'E' && c != 'P')
 		ft_error("MAP CONTAINS WRONG CHARS", map);
 	return (0);
+}
+
+void	inizialize(t_window *window)
+{
+	window->collect = 0;
+	window->collectable = 0;
+	window->player = 0;
+	window->door = 0;
+	window->size_x = 0;
+	window->size_y = 0;
+	window->stepx = 0;
+	window->stepy = 0;
 }

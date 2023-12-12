@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:52:31 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/07 17:41:23 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 13:15:38 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,47 @@ char	**map_anal(char *mappa, t_window *window)
 	collectable_count(map, window);
 	free(buffer);
 	return (map);
+}
+
+void	collectable_count(char **map, t_window *window)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'C')
+				window->collectable++;
+			else if (map[i][j] == 'P')
+				window->player++;
+			else if (map[i][j] == 'E')
+				window->door++;
+			j++;
+		}
+		i++;
+	}
+	window->size_x = j;
+	window->size_y = i;
+}
+
+void	ft_fill_top(t_window *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 30)
+	{
+		j = 0;
+		while (j < data->size_x * 32)
+		{
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, j, i, 0xFFC0CB);
+			j++;
+		}
+		i++;
+	}
 }

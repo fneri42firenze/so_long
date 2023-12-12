@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:59:32 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/07 17:43:37 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 12:45:45 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_window	window;
 
+	inizialize(&window);
 	ft_controlfile(argc, argv[1]);
 	window.collect = 0;
 	if (argc != 2)

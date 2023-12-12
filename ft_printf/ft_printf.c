@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 20:07:33 by fneri             #+#    #+#             */
-/*   Updated: 2023/11/23 18:54:27 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 12:49:22 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,3 @@ int	ft_printf(const char *in, ...)
 	va_end(arguments);
 	return (printable);
 }
-

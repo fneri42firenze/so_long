@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:45:41 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/07 17:25:33 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 12:57:38 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,17 @@
 int	ft_reachable(t_window *window)
 {
 	t_vector	curr;
-	t_vector	size;
 	t_window	wind;
 	char		**window_copy;
 
 	curr = ft_find_player(window->map);
 
-	size.x = window->size_x;
-	size.y = window->size_y;
-
 	wind.collectable = 0;
 	wind.door = 0;
 
-	window_copy = ft_copy_matrix(window->map, size.y, size.x);
-	ft_dfs(window_copy, size, curr, &wind);
+	window_copy = ft_copy_matrix(window->map, window->size_y, window->size_x);
+	ft_dfs(window_copy, (t_vector){window->size_x, window->size_y},
+		curr, &wind);
 	ft_free_matrix(window_copy);
 
 	if (wind.door != 1 || wind.collectable != window->collect)
