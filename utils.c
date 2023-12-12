@@ -6,18 +6,24 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:53:26 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/12 13:14:55 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 16:48:13 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	window_close(t_window *window)
+int	ft_window_close(t_window *window)
 {
+	mlx_destroy_image(window->mlx_ptr, window->imgs.img_0);
+	mlx_destroy_image(window->mlx_ptr, window->imgs.img_1);
+	mlx_destroy_image(window->mlx_ptr, window->imgs.img_p);
+	mlx_destroy_image(window->mlx_ptr, window->imgs.img_e);
+	mlx_destroy_image(window->mlx_ptr, window->imgs.img_c);
 	mlx_destroy_window(window->mlx_ptr, window->win_ptr);
 	mlx_destroy_display(window->mlx_ptr);
 	free(window->mlx_ptr);
-	exit(0);
+	ft_free_matr(window->map);
+	exit (0);
 	return (0);
 }
 
@@ -57,7 +63,7 @@ int	ft_wrong_char(char c, char **map)
 	return (0);
 }
 
-void	inizialize(t_window *window)
+void	ft_inizialize(t_window *window)
 {
 	window->collect = 0;
 	window->collectable = 0;

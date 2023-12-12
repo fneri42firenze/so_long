@@ -14,7 +14,7 @@ image_management.c \
 utils.c \
 control.c \
 mem_free.c \
-flood:rechable_control.c \
+flood_rechable_control.c \
 main.c
 
 OBJ = $(SRC:.c=.o)

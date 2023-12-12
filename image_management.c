@@ -6,13 +6,13 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:52:22 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/12 12:53:56 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 16:47:43 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_img	img_convert(t_window *window)
+t_img	ft_img_convert(t_window *window)
 {
 	t_img	image;
 	int		width;
@@ -33,7 +33,7 @@ t_img	img_convert(t_window *window)
 	return (image);
 }
 
-void	draw_image(char stamp, t_window *window, t_vector coord)
+void	ft_draw_image(char stamp, t_window *window, t_vector coord)
 {
 	if (stamp == '1')
 		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr,

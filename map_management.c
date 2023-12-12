@@ -6,13 +6,13 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:52:31 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/12 13:15:38 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 16:47:59 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	map_stamp(t_window *data)
+void	ft_map_stamp(t_window *data)
 {
 	t_vector	coord;
 
@@ -28,14 +28,14 @@ void	map_stamp(t_window *data)
 				data->player_pos.x = coord.x;
 				data->player_pos.y = coord.y;
 			}
-			draw_image(data->map[coord.y][coord.x], data, coord);
+			ft_draw_image(data->map[coord.y][coord.x], data, coord);
 			coord.x++;
 		}
 		coord.y++;
 	}
 }
 
-char	**map_anal(char *mappa, t_window *window)
+char	**ft_map_anal(char *mappa, t_window *window)
 {
 	char	**map;
 	char	*buffer;
@@ -43,28 +43,27 @@ char	**map_anal(char *mappa, t_window *window)
 	int		fd_open;
 
 	map = NULL;
+	fd_open = open(mappa, O_RDONLY);
+	if (fd_open == -1)
+		ft_error("MAP DOES NOT EXIST", NULL);
 	buffer = malloc(1);
+	buffer[0] = 0;
 	if (!buffer)
 		return (NULL);
-	fd_open = open(mappa, O_RDONLY);
-	if (fd_open)
+	while (1)
 	{
-		while (1)
-		{
-			line = get_next_line(fd_open);
-			if (!line)
-				break ;
-			buffer = ft_strjoin(buffer, line);
-			free(line);
-		}
-		map = ft_split(buffer, '\n');
+		line = get_next_line(fd_open);
+		if (!line)
+			break ;
+		buffer = ft_freejoin(buffer, line);
 	}
-	collectable_count(map, window);
+	map = ft_split(buffer, '\n');
+	ft_collectable_count(map, window);
 	free(buffer);
 	return (map);
 }
 
-void	collectable_count(char **map, t_window *window)
+void	ft_collectable_count(char **map, t_window *window)
 {
 	int	i;
 	int	j;

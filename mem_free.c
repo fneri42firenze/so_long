@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:11:46 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/12 12:53:25 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 15:39:51 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,12 @@ void	ft_free_matr(char **matr)
 	free(matr);
 }
 
-void	ft_free_matrix(char **matr)
+char	*ft_freejoin(char *buffer, char *line)
 {
-	int	i;
+	char	*temp;
 
-	i = 0;
-	while (matr[i])
-	{
-		free(matr[i]);
-		i++;
-	}
-	free(matr);
+	temp = ft_strjoin(buffer, line);
+	free(buffer);
+	free(line);
+	return (temp);
 }
