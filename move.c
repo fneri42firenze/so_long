@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:47 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/12 16:48:27 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/12 16:55:29 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,4 @@ void	ft_move_authorize(t_window *data)
 		&& data->map[data->player_pos.y + data->stepy]
 		[data->player_pos.x + data->stepx] == 'E' )
 		ft_window_close(data);
-	ft_printf("%i\n", data->collect);
 }
