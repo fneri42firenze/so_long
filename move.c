@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:47 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/12 16:55:29 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/15 18:47:27 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,23 @@ int	ft_key_press(int keycode, t_window *data)
 	else if (keycode == 65307)
 		ft_window_close(data);
 	ft_move_authorize(data);
+	ft_display(data);
 	return (0);
+}
+
+void	ft_display(t_window *data)
+{
+	char	*move_str;
+	char	*collect_str;
+
+	move_str = ft_itoa(data->move_count);
+	collect_str = ft_itoa(data->collect);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 5, 15, 0xffffff,
+		ft_freejoin("COLLECTED: ", collect_str));
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 5, 25, 0xffffff,
+		ft_freejoin("MOVE NUMBER: ", move_str));
+	free(move_str);
+	free(collect_str);
 }
 
 void	ft_move_authorize(t_window *data)
@@ -45,10 +61,14 @@ void	ft_move_authorize(t_window *data)
 			data->map[data->player_pos.y + data->stepy]
 			[data->player_pos.x + data->stepx] = 'P';
 			ft_map_stamp(data);
+			data->move_count++;
 		}
 	}
 	else if (data->collect == data->collectable
 		&& data->map[data->player_pos.y + data->stepy]
 		[data->player_pos.x + data->stepx] == 'E' )
+	{
 		ft_window_close(data);
+		data->move_count++;
+	}
 }

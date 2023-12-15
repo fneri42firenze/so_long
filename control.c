@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:32:50 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/12 16:24:47 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/15 15:04:02 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int	ft_controlfile(int argc, char *file)
 	if (argc != 2)
 	{
 		ft_error("Use: ./so_long maps/file.ber", NULL);
+		return (0);
+	}
+	else if (open(file, O_RDONLY) == -1)
+	{
+		ft_error("     MAP NOT FOUND", NULL);
 		return (0);
 	}
 	else if (!ft_ber(file, ".ber"))

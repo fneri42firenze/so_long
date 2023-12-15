@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:52:31 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/12 16:47:59 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/15 19:11:29 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	ft_fill_top(t_window *data)
 		j = 0;
 		while (j < data->size_x * 32)
 		{
-			mlx_pixel_put(data->mlx_ptr, data->win_ptr, j, i, 0xFFC0CB);
+			mlx_pixel_put(data->mlx_ptr, data->win_ptr, j, i, 0x5d4a6b);
 			j++;
 		}
 		i++;

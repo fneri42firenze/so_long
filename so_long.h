@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:09:08 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/12 16:48:27 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/15 18:16:49 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_window
 	int			size_y;
 	int			stepx;
 	int			stepy;
+	int			move_count;
 }				t_window;
 
 t_img		ft_img_convert(t_window *window);
@@ -79,4 +80,5 @@ void		ft_errors_control(t_window *window);
 void		ft_dfs(char **map, t_vector size, t_vector curr, t_window *wind);
 void		ft_inizialize(t_window *window);
 void		ft_move_authorize(t_window *data);
+void		ft_display(t_window *data);
 #endif

@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:06:33 by fneri             #+#    #+#             */
-/*   Updated: 2023/10/11 16:35:26 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/15 18:59:12 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char	*ft_itoa(int n)
 {
 	char	*str;
+	// char	*tmp;
 
 	str = (char *)malloc(sizeof(char) * 2);
 	if (!str)
@@ -34,6 +35,8 @@ char	*ft_itoa(int n)
 		str[0] = n + '0';
 		str[1] = '\0';
 	}
+	// tmp = str;
+	// free(tmp);
 	return (str);
 }
 /*
