@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:09:08 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/18 18:28:32 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/18 18:48:09 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,11 @@ int			ft_wrong_char(char c, char **map);
 int			ft_empty_lines(char *l);
 int			ft_reachable(t_window *window);
 char		**ft_map_anal(char *mappa, t_window *window);
-char		**ft_copy_matrix(char **window, int rows, int cols);
-char		*ft_freejoin(char *buffer, char *line);
 void		ft_collectable_count(char **map, t_window *window);
 void		ft_draw_image(char stamp, t_window *window, t_vector coord);
 void		ft_fill_top(t_window *data);
 void		ft_map_stamp(t_window *data);
 void		ft_error(char *errormessage, char **matr);
-void		ft_free_matr(char **matr);
 void		ft_maprectangular(t_window *window);
 void		ft_controlwall(t_window *window);
 void		ft_errors_control(t_window *window);
@@ -81,6 +78,5 @@ void		ft_dfs(char **map, t_vector size, t_vector curr, t_window *wind);
 void		ft_inizialize(t_window *window);
 void		ft_move_authorize(t_window *data);
 void		ft_display(t_window *data);
-char		*ft_partial_freejoin(char *buffer, char *line, int op);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flood:rechable_control.c                           :+:      :+:    :+:   */
+/*   flood_rechable_control.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:45:41 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/12 15:12:32 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/18 18:43:20 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,4 @@ void	ft_dfs(char **map, t_vector size, t_vector curr, t_window *wind)
 	ft_dfs(map, size, (t_vector){curr.x, curr.y - 1}, wind);
 	ft_dfs(map, size, (t_vector){curr.x + 1, curr.y}, wind);
 	ft_dfs(map, size, (t_vector){curr.x, curr.y + 1}, wind);
-}
-
-char	**ft_copy_matrix(char **window, int rows, int cols)
-{
-	char	**duplicate;
-	int		i;
-
-	duplicate = malloc(sizeof(char *) * (rows + 1));
-	i = 0;
-	while (window[i])
-	{
-		duplicate[i] = malloc(sizeof(char) * cols);
-		ft_memcpy(duplicate[i], window[i], sizeof(char) * cols);
-		i++;
-	}
-	duplicate[i] = NULL;
-	return (duplicate);
 }

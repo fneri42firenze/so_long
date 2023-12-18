@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fneri <fneri@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/18 18:39:43 by fneri             #+#    #+#              #
+#    Updated: 2023/12/18 18:51:32 by fneri            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = so_long
 CC = cc
 CFLAGS = -Wextra -Werror -Wall -g
@@ -13,7 +25,6 @@ map_management.c \
 image_management.c \
 utils.c \
 control.c \
-mem_free.c \
 flood_rechable_control.c \
 main.c
 
