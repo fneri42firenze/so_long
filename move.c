@@ -6,7 +6,7 @@
 /*   By: fneri <fneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:47 by fneri             #+#    #+#             */
-/*   Updated: 2023/12/15 18:47:27 by fneri            ###   ########.fr       */
+/*   Updated: 2023/12/18 18:37:05 by fneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ void	ft_display(t_window *data)
 	char	*move_str;
 	char	*collect_str;
 
-	move_str = ft_itoa(data->move_count);
-	collect_str = ft_itoa(data->collect);
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 5, 15, 0xffffff,
-		ft_freejoin("COLLECTED: ", collect_str));
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 5, 25, 0xffffff,
-		ft_freejoin("MOVE NUMBER: ", move_str));
+	move_str = ft_partial_freejoin("COLLECTED: ", ft_itoa(data->move_count), 2);
+	collect_str = ft_partial_freejoin("MOVE NUMBER: ", ft_itoa(data->collect),
+			2);
+
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 5, 15, 0xffffff, collect_str);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 5, 25, 0xffffff, move_str);
 	free(move_str);
 	free(collect_str);
 }
